@@ -16,7 +16,10 @@ makeGrid();
 
 
 setInterval(function(){ 
-  alert("Hello"); 
+  for(let i in grid){
+    grid[i].secondsPassedSinceColorChange += 0.25;    
+  }
+  pickRand(); 
 }, 250);
 
 function pickRand(){
@@ -46,7 +49,7 @@ function makeRGB(){
 };
 
 function checkSecondsPassedSinceColorChange (tileNumber){
-  if (grid[tileNumber].secondsPassedSinceColorChange > 2) {
+  if (grid[tileNumber].secondsPassedSinceColorChange >= 2) {
     return true; 
   } else {
     return false; 
