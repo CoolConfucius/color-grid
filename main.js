@@ -24,7 +24,6 @@ setInterval(function(){
 
 function pickRand(){
   var rand = Math.floor(Math.random() * 16 ); 
-  console.log(rand);
   if (grid[rand].isNew) {
     grid[rand].isNew = false; 
     changeColor(rand); 
@@ -50,8 +49,10 @@ function makeRGB(){
 
 function checkSecondsPassedSinceColorChange (tileNumber){
   if (grid[tileNumber].secondsPassedSinceColorChange >= 2) {
+    console.log("true");
     return true; 
   } else {
+    console.log("false");
     return false; 
   }  
 };
