@@ -51,7 +51,6 @@ function init(){
         pickRand(); 
       }
     }
-
   };
 
   function changeColor(tileNumber){
@@ -65,19 +64,10 @@ function init(){
   };
 
   function checkSecondsPassedSinceColorChange (tileNumber){
-    if (grid[tileNumber].secondsPassedSinceColorChange >= 2) {
-      console.log("true");
+    if (grid[tileNumber].secondsPassedSinceColorChange >= 2) {    
       return true; 
     } else {
-      console.log("false");
       return false; 
     }  
   };
-
-  function pause(){
-    pause = true; 
-  }
-
-
-
 }
