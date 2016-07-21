@@ -1,16 +1,16 @@
 document.onreadystatechange = function () {
   if (document.readyState !== 'interactive'){
-    console.log(document.readyState);
     init();
-  } else if(document.readyState === 'complete'){
-    console.log(document.readyState);
-    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    document.addEventListener('DOMContentLoaded', init);  
   }
 }
 
 
 function init(){
-
+  document.getElementById("pause").addEventListener("click", function(){
+    pause = !pause; 
+  });
   var pause = false; 
   var grid = []; 
 
@@ -28,11 +28,13 @@ function init(){
 
   makeGrid(); 
 
-  setInterval(function(){ 
-    for(let i in grid){
-      grid[i].secondsPassedSinceColorChange += 0.25;    
+  setInterval(function(){
+    if(!pause){
+      for(let i in grid){
+        grid[i].secondsPassedSinceColorChange += 0.25;    
+      }
+      pickRand(); 
     }
-    pickRand(); 
   }, 250);
 
   function pickRand(){
@@ -69,5 +71,11 @@ function init(){
       return false; 
     }  
   };
+
+  function pause(){
+    pause = true; 
+  }
+
+
 
 }
