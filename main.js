@@ -5,6 +5,7 @@ function makeGrid(){
     var tile = {
       tileId: "t"+i,
       hex: "#ffffff",
+      isNew: true, 
       secondsPassedSinceColorChange: 0
     }
     grid.push(tile);    
@@ -21,10 +22,22 @@ makeGrid();
 function pickRand(){
   var rand = Math.floor(Math.random() * 16 ); 
   console.log(rand);
+  if (grid[rand].isNew) {
+    grid[rand].isNew = false; 
+    changeColor(rand); 
+  } else {
+    if (checkSecondsPassedSinceColorChange(rand)) {
+      changeColor(rand); 
+      grid[rand].secondsPassedSinceColorChange = 0; 
+    } else {
+      pickRand(); 
+    }
+  }
+
 };
 
-function changeColor(){
-  
+function changeColor(tileNumber){
+  document.getElementById("t"+tileNumber).style.blackgroundColor = makeRGB();
 };
 
 function makeRGB(){
@@ -32,7 +45,14 @@ function makeRGB(){
 	return "#" + ('00000' + hexString).slice(-6);
 };
 
-function checkSecondsPassedSinceColorChange (){
+function checkSecondsPassedSinceColorChange (tileNumber){
+  if (grid[tileNumber].secondsPassedSinceColorChange > 2) {
+    return true; 
+  } else {
+    return false; 
+  }
+
+  
   
 };
 
