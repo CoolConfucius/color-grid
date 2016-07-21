@@ -37,7 +37,7 @@ function pickRand(){
 };
 
 function changeColor(tileNumber){
-  document.getElementById("t"+tileNumber).style.blackgroundColor = makeRGB();
+  document.getElementById("t"+tileNumber).style.backgroundColor = makeRGB();
 };
 
 function makeRGB(){
