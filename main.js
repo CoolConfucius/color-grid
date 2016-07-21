@@ -15,9 +15,9 @@ function makeGrid(){
 makeGrid(); 
 
 
-// setInterval(function(){ 
-//   alert("Hello"); 
-// }, 3000);
+setInterval(function(){ 
+  alert("Hello"); 
+}, 250);
 
 function pickRand(){
   var rand = Math.floor(Math.random() * 16 ); 
@@ -27,8 +27,7 @@ function pickRand(){
     changeColor(rand); 
   } else {
     if (checkSecondsPassedSinceColorChange(rand)) {
-      changeColor(rand); 
-      grid[rand].secondsPassedSinceColorChange = 0; 
+      changeColor(rand);       
     } else {
       pickRand(); 
     }
@@ -38,6 +37,7 @@ function pickRand(){
 
 function changeColor(tileNumber){
   document.getElementById("t"+tileNumber).style.backgroundColor = makeRGB();
+  grid[tileNumber].secondsPassedSinceColorChange = 0; 
 };
 
 function makeRGB(){
@@ -50,11 +50,5 @@ function checkSecondsPassedSinceColorChange (tileNumber){
     return true; 
   } else {
     return false; 
-  }
-
-  
-  
+  }  
 };
-
-// makeGrid(); 
-// alert(grid);
