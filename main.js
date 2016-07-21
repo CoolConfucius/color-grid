@@ -11,13 +11,16 @@ function makeGrid(){
   }
 };
 
+makeGrid(); 
+
 
 // setInterval(function(){ 
 //   alert("Hello"); 
 // }, 3000);
 
 function pickRand(){
-  
+  var rand = Math.floor(Math.random() * 16 ); 
+  console.log(rand);
 };
 
 function changeColor(){
@@ -33,5 +36,5 @@ function checkSecondsPassedSinceColorChange (){
   
 };
 
-makeGrid(); 
-alert(grid);
+// makeGrid(); 
+// alert(grid);
