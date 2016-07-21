@@ -1,9 +1,9 @@
 document.onreadystatechange = function () {
-  if (document.readyState != 'loading'){
-    console.log("here?");
+  if (document.readyState !== 'interactive'){
+    console.log(document.readyState);
     init();
-  } else {
-    console.log("else");
+  } else if(document.readyState === 'complete'){
+    console.log(document.readyState);
     document.addEventListener('DOMContentLoaded', init);
   }
 }
