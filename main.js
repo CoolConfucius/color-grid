@@ -8,8 +8,10 @@ document.onreadystatechange = function () {
 
 
 function init(){
-  document.getElementById("pause").addEventListener("click", function(){
+  var pauseButton = document.getElementById("pause");
+  pauseButton.addEventListener("click", function(){
     pause = !pause; 
+    pauseButton.textContent = pause ? "Play" : "Pause"; 
   });
   var pause = false; 
   var grid = []; 
