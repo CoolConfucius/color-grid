@@ -1,13 +1,16 @@
-function ready(init) {
+document.onreadystatechange = function () {
   if (document.readyState != 'loading'){
+    console.log("here?");
     init();
   } else {
+    console.log("else");
     document.addEventListener('DOMContentLoaded', init);
   }
 }
 
+
 function init(){
-  
+
   var pause = false; 
   var grid = []; 
 
@@ -66,5 +69,5 @@ function init(){
       return false; 
     }  
   };
-  
+
 }
