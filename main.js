@@ -1,11 +1,8 @@
 document.onreadystatechange = function () {
   if (document.readyState !== 'interactive'){
     init();
-  } else {
-    document.addEventListener('DOMContentLoaded', init);  
-  }
+  } 
 }
-
 
 function init(){
   var pauseButton = document.getElementById("pause");
@@ -29,28 +26,25 @@ function init(){
 
   makeGrid(); 
 
-  setInterval(function(){
-    if(!pause){
-      for(let tile of grid){
-        tile.secondsPassedSinceColorChange += 0.25;    
-      }
-      pickRand(); 
-    }
-  }, 250);
+  
 
   function pickRand(){
-    var rand = Math.floor(Math.random() * 16 ); 
+    changeColor(recursion()); 
+  };
+
+  function recursion(){
+    let rand = Math.floor(Math.random() * 16 );
     if (grid[rand].isNew) {
       grid[rand].isNew = false; 
-      changeColor(rand); 
+      return rand; 
+    } else if (checkSecondsPassedSinceColorChange(rand)){
+      return rand; 
     } else {
-      if (checkSecondsPassedSinceColorChange(rand)) {
-        changeColor(rand);       
-      } else {
-        pickRand(); 
-      }
+      return recursion(); 
     }
   };
+
+
 
   function changeColor(tileNumber){
     document.getElementById("t"+tileNumber).style.backgroundColor = makeRGB();
@@ -64,9 +58,22 @@ function init(){
 
   function checkSecondsPassedSinceColorChange (tileNumber){
     if (grid[tileNumber].secondsPassedSinceColorChange >= 2) {    
+      console.log("true");
       return true; 
     } else {
+      console.log("false");
       return false; 
     }  
   };
+
+  setInterval(function(){
+    if(!pause){
+      for(let tile of grid){
+        tile.secondsPassedSinceColorChange += 0.25;    
+      }
+      pickRand(); 
+    }
+  }, 250);
 }
+
+// init(); 
