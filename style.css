@@ -8,16 +8,9 @@
   display: inline-block;
 }
 
-.row {
-  margin: 0;
-  padding: 0; 
-}
-
 .tile {
   height: 100px;
   width: 100px;
-  margin: 0;
-  padding: 0;
   display: inline-block;
   border: solid black;
   background-color: grey;
