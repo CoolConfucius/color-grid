@@ -36,21 +36,25 @@ function init(){
       }
       pickRand(); 
     }
-  }, 250);
+  }, 1000);
 
   function pickRand(){
-    var rand = Math.floor(Math.random() * 16 ); 
+    changeColor(recursion()); 
+  };
+
+  function recursion(){
+    let rand = Math.floor(Math.random() * 16 );
     if (grid[rand].isNew) {
       grid[rand].isNew = false; 
-      changeColor(rand); 
+      return rand; 
+    } else if (checkSecondsPassedSinceColorChange(rand)){
+      return rand; 
     } else {
-      if (checkSecondsPassedSinceColorChange(rand)) {
-        changeColor(rand);       
-      } else {
-        pickRand(); 
-      }
+      return recursion(); 
     }
   };
+
+
 
   function changeColor(tileNumber){
     document.getElementById("t"+tileNumber).style.backgroundColor = makeRGB();
@@ -64,8 +68,10 @@ function init(){
 
   function checkSecondsPassedSinceColorChange (tileNumber){
     if (grid[tileNumber].secondsPassedSinceColorChange >= 2) {    
+      console.log("true");
       return true; 
     } else {
+      console.log("false");
       return false; 
     }  
   };
