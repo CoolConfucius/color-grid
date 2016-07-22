@@ -31,8 +31,8 @@ function init(){
 
   setInterval(function(){
     if(!pause){
-      for(let i in grid){
-        grid[i].secondsPassedSinceColorChange += 0.25;    
+      for(let tile of grid){
+        tile.secondsPassedSinceColorChange += 0.25;    
       }
       pickRand(); 
     }
