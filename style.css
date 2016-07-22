@@ -9,7 +9,7 @@ body {
 }
 
 #grid {
-  border: 10px solid black;
+  border: solid black;
   display: inline-block;
   margin: 0 auto;
   padding: 0;
