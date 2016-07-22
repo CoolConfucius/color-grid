@@ -1,12 +1,8 @@
-// document.onreadystatechange = function () {
-//   if (document.readyState !== 'interactive'){
-//     init();
-//   } else {
-//     document.addEventListener('DOMContentLoaded', init);  
-//   }
-// }
-
-init(); 
+document.onreadystatechange = function () {
+  if (document.readyState !== 'interactive'){
+    init();
+  } 
+}
 
 function init(){
   var pauseButton = document.getElementById("pause");
@@ -73,9 +69,11 @@ function init(){
   setInterval(function(){
     if(!pause){
       for(let tile of grid){
-        tile.secondsPassedSinceColorChange += 1;    
+        tile.secondsPassedSinceColorChange += 0.25;    
       }
       pickRand(); 
     }
-  }, 1000);
+  }, 250);
 }
+
+// init(); 
