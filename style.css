@@ -4,27 +4,28 @@
 }
 
 body {
-  width: 300px;
+  width: 25%;
   margin: 0 auto;
 }
 
 #grid {
   border: solid black;
   display: inline-block;
-  margin: 0 auto;
-  padding: 0;
+  /*margin: 0 auto;
+  padding: 0;*/
 }
 
 .row {
   margin: 0;
   padding: 0; 
+  display: inline-block;
 }
 
 .tile {
   /*height: 100px;*/
   /*width: 100px;*/
   margin: 0;
-  padding: 30px;
+  padding: 25%;
   display: inline-block;
   border: solid black;
   background-color: grey;
