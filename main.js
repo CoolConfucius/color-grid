@@ -20,7 +20,6 @@ function init(){
     for(let i = 0; i < 16; i++){
       var tile = {
         tileId: "t"+i,
-        hex: "#ffffff",
         isNew: true, 
         secondsPassedSinceColorChange: 0
       }
