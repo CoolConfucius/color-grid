@@ -26,8 +26,6 @@ function init(){
 
   makeGrid(); 
 
-  
-
   function pickRand(){
     changeColor(recursion()); 
   };
@@ -44,8 +42,6 @@ function init(){
     }
   };
 
-
-
   function changeColor(tileNumber){
     document.getElementById("t"+tileNumber).style.backgroundColor = makeRGB();
     grid[tileNumber].secondsPassedSinceColorChange = 0; 
@@ -58,10 +54,8 @@ function init(){
 
   function checkSecondsPassedSinceColorChange (tileNumber){
     if (grid[tileNumber].secondsPassedSinceColorChange >= 2) {    
-      console.log("true");
       return true; 
     } else {
-      console.log("false");
       return false; 
     }  
   };
@@ -75,5 +69,3 @@ function init(){
     }
   }, 250);
 }
-
-// init(); 
